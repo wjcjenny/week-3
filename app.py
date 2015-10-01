@@ -43,7 +43,8 @@ def getData():
 	print 'received ' + str(numListings) + ' records'
 
 	client.db_close()
-
+	
+	# To format our queried results as GeoJSON data, we first create a main dictionary which will be stored in a variable called 'output’.
 	output = {"type":"FeatureCollection","features":[]}
 
 	for record in records:
