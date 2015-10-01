@@ -2,10 +2,29 @@
 <head>
 	<title>Flask Demo</title>
 	<script type="text/javascript" src="./static/lib/d3.js"></script>
+	<script type="text/javascript" src="./static/lib/leaflet.js"></script>
+	<link rel="stylesheet" href="./static/lib/leaflet.css"/>
+	<style>
+	    body {
+	        padding: 0;
+	        margin: 0;
+	    }
+	    html, body, #map {
+	        height: 100%;
+	    }
+	</style>
+	<!-- tell the browser to disable unwanted scaling of the page and set it to its actual size  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
-
+	<div id = "map"></div>>
 	<script type="text/javascript">
+	// use the .map() function of the base Leaflet class (called 'L’) and pass it the id of the container where the map should go. In the same line, we run the .setView() function on this map to set the latitude and longitude where the map should be centered, as well as the zoom level.
+		var map = L.map('map').setView([22.399961, 114.117523], 11);
+	// get our basic map working is to specify the tile files that our map will use.
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
 
 	</script>
 
